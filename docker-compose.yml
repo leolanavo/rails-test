@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  api:
+    build:
+      context: .
+      target: development
+    ports:
+      - '3000:3000'
+    volumes:
+      - '.:/usr/src/api'
+      - '/usr/src/api/vendor/bundle'
