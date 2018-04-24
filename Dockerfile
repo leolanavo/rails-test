@@ -27,7 +27,6 @@ ENV RAILS_ENV=development
 RUN apk add --update \
     build-base \
     sqlite-dev \
-    yaml-dev \
     nodejs \
     tzdata \
     yarn \
@@ -41,6 +40,8 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle install
 
 COPY . .
+
+# CMD ["rm", "-f", "/usr/src/api/tmp/pids/server.pid"]
 
 CMD ["rails", "server"]
 
